@@ -55,14 +55,6 @@ public class HomeWorkTest {
         );
         // TODO: Отсортировать по score и по алфавиту, выбрать только тех, у кого score больше или равно 56
 
-//        List newList = new ArrayList<>();
-//        for (int i = 0; i < list.size(); i++) {
-//            newList.add(i,list.get(i).getScore());
-//        }
-//        newList = newList.stream().filter(x -> (x >= 56)).collect(Collectors.toList());
-//      //list = list.stream().filter(list.get().getScore() -> l
-//      ist.get().getScore()>=56)
-//            .sorted().collect(Collectors.toList());
         list = list.stream().filter(x -> x.getScore() >= 56).sorted(Comparator.comparing(Student::getFirstName)
                 .thenComparing(Student::getLastName)).collect(Collectors.toList());
         Assertions.assertEquals("Kuznecov", list.get(0).getLastName());
